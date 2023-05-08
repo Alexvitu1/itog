@@ -24,9 +24,34 @@ void Print(string[] array)
     }
 }
 
+void RemoveIndex(ref string[] array, int index)
+{
+string[]newArray = new string[array.Length - 1];
+for (int i=0; i< index; i++) 
+newArray[i]= array[i];
+
+for (int i=index+1; i<array.Length; i++)
+newArray [i-1]=array[i];
+
+array=newArray;
+}
 
 
 int length = SetNumber();
 string[] array = new string[length];
 MetodArray(array);
+Print(array);
+for(int i=0; i<array.Length; i++)
+{
+if (array[i].Length > 3) 
+      RemoveIndex(ref array, i);
+
+
+}
+System.Console.WriteLine();
+
+
+
+
+
 Print(array);
